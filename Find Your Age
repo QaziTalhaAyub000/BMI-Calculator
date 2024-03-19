@@ -1,0 +1,26 @@
+import streamlit as st
+from datetime import datetime
+
+def calculate_age(birth_year):
+    """
+    Calculate age based on birth year.
+    """
+    current_year = datetime.now().year
+    age = current_year - birth_year
+    return age
+
+def main():
+    st.title("Age Calculator")
+    
+    # Input birth year
+    birth_year = st.number_input("Enter your birth year:", min_value=1900, max_value=2022)
+    
+    if st.button("Calculate Age"):
+        # Calculate age
+        age = calculate_age(birth_year)
+        
+        # Display age
+        st.write(f"You are {age} years old.")
+
+if __name__ == "__main__":
+    main()
